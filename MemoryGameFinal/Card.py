@@ -4,8 +4,10 @@ import pygame
 # Screen width and height
 WINDOW_X, WINDOW_Y = 1000, 720
 
+# Set card size
 CARD_SIZE = (100, 100)
 
+# Load image for backs of cards
 cardBack = pygame.image.load("GameFiles/CardBack.png")
 
 # Define color names and corresponding file paths
@@ -33,10 +35,10 @@ numberImages = {
     33: images["PurpleRhombus"], 34: images["PurpleSquare"], 35: images["PurpleStar"], 36: images["PurpleTriangle"],
 }
 
-# Load image for backs of cards
+# Scale image for backs of cards
 cardBack = pygame.transform.scale(cardBack, CARD_SIZE)
 
-# Load card images
+# Scale card images
 for key, image in numberImages.items():
     numberImages[key] = pygame.transform.scale(image, CARD_SIZE)
 
@@ -109,11 +111,11 @@ def generateCardPos(boardSize=6):
     xpos = startX
     ypos = startY
 
-    for i in range(numRows):  # Outer loop for rows
-        for u in range(numRows):  # Inner loop for columns
+    for i in range(numRows): 
+        for u in range(numRows):
             cardPositions.append((xpos, ypos))
-            xpos += 110  # Move to the next column
-        xpos = startX  # Reset xpos for the next row
-        ypos += 110  # Move to the next row
+            xpos += 110
+        xpos = startX
+        ypos += 110
 
     return cardPositions
